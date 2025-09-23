@@ -1,0 +1,27 @@
+{
+  "name": "mampus-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "clean": "del /s /q build",
+    "build": "tsc --build",
+    "start": "npm run clean && npm run build && node build/index.js",
+    "startNoClean": "npm run build && node build/index.js",
+    "devStart": "npm run clean && npm run build && node build/index.js --development",
+    "devStartNoClean": "npm run build && node build/index.js --development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@types/ms": "^2.1.0",
+    "discord-arts": "^0.7.1",
+    "discord.js": "^14.22.1",
+    "glob": "^11.0.3",
+    "mongoose": "^8.18.1",
+    "ms": "^2.1.3",
+    "typescript": "^5.9.2"
+  }
+}
