@@ -133,7 +133,7 @@ export default class clear extends Command {
                 .setAuthor({ name: `🧹 Clear | ${channel.name}` })
                 .setDescription(`**Deleted:**: ${deleted} messages`)
                 .setTimestamp()
-                .setThumbnail(`${target ? target.user.displayAvatarURL({ size: 128 }) : interaction.guild?.iconURL({ size: 128 })}`)
+                .setThumbnail(target ? target.user.displayAvatarURL({ size: 128 }) : interaction.guild?.iconURL({ size: 128 }) || null)
                 .setFooter({
                     text: `Messages: ${target ? target.user.tag : "All"} Messages in ${channel.name}`,
                 })
@@ -157,7 +157,7 @@ export default class clear extends Command {
           new EmbedBuilder()
             .setColor("Orange")
             .setAuthor({ name: `🧹 Clear` })
-            .setThumbnail(`${target ? target.user.displayAvatarURL({ size: 128 }) : interaction.guild?.iconURL({ size: 128 })}`)
+            .setThumbnail(target ? target.user.displayAvatarURL({ size: 128 }) : interaction.guild?.iconURL({ size: 128 }) || null)
             .setDescription(
               `**Channel:** ${channel} - \`${channel.id}\`
             **Messages:** ${target ? target : "All"}
