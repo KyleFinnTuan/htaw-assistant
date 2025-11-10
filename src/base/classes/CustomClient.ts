@@ -5,6 +5,7 @@ import Handler from "./Handler";
 import Command from "./Command";
 import SubCommand from "./SubCommand";
 import { connect } from "mongoose";
+import * as fs from "fs";
 
 export default class CustomClient extends Client implements ICustomClient {
   handler: Handler;
@@ -16,12 +17,24 @@ export default class CustomClient extends Client implements ICustomClient {
 
   constructor() {
     super({ intents: [GatewayIntentBits.Guilds] });
-    this.config = require(`${process.cwd()}/data/config.json`);
+    this.config = this.loadConfig();
     this.handler = new Handler(this);
     this.commands = new Collection();
     this.subCommands = new Collection();
     this.cooldowns = new Collection();
     this.developmentMode = process.argv.slice(2).includes("--development");
+  }
+
+  private loadConfig(): IConfig {
+    const configPath = `${process.cwd()}/data/config.json`;
+    let configContent = fs.readFileSync(configPath, 'utf-8');
+    
+    // Replace environment variable placeholders with actual values
+    configContent = configContent.replace(/\$\{(\w+)\}/g, (match, envVar) => {
+      return process.env[envVar] || '';
+    });
+    
+    return JSON.parse(configContent);
   }
 
   init(): void {

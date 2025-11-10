@@ -1,13 +1,13 @@
 {
-    "token" : "MTE3OTk2NTIzMTQ5ODI2ODc5Mw.G8csS6.aFtU03fS4ST1V3iyoNZDabAqnHdx1bURVdTYo0",
-    "discordClientId": "1179965231498268793",
-    "mongoUrl": "mongodb+srv://wandinainggolan9_db_user:kelvinmasuk@cluster0.cdst8x2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
-    "geminiApiKey": "AIzaSyAgeOnUEKVOe6FGXXAWQByrJqz2Vi-8Xq0",
+    "token" : "${TOKEN}",
+    "discordClientId": "${DISCORD_CLIENT_ID}",
+    "mongoUrl": "${MONGO_URL}",
+    "geminiApiKey": "${GEMINI_API_KEY}",
 
-    "devToken": "",
-    "devDiscordClientId": "",
-    "devGuildId": "693366558050746369",
-    "devMongoUrl": "mongodb+srv://admin:G5u8o@example.com/?retryWrites=true&w=majority",
+    "devToken": "${DEV_TOKEN}",
+    "devDiscordClientId": "${DEV_DISCORD_CLIENT_ID}",
+    "devGuildId": "${DEV_GUILD_ID}",
+    "devMongoUrl": "${DEV_MONGO_URL}",
 
     "developerUserId": ["617374726654001172"]
 }
